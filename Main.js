@@ -57,7 +57,7 @@
     { title: "Politique de confidentialité — Import Tool for HelloAsso", desc: "Données traitées, stockage et droits RGPD.", url: base + "Import-Tool-for-HelloAsso/Politique-de-confidentialite.html", keywords: "confidentialité rgpd données vie privée" },
     { title: "Conditions d'utilisation — Import Tool for HelloAsso", desc: "Conditions générales d'utilisation de l'extension.", url: base + "Import-Tool-for-HelloAsso/Conditions-Utilisation.html", keywords: "cgu conditions utilisation licence" },
     { title: "Mentions légales — Import Tool for HelloAsso", desc: "Éditeur, hébergement et propriété intellectuelle.", url: base + "Import-Tool-for-HelloAsso/Mentions-Legales.html", keywords: "mentions légales éditeur" },
-    { title: "Contact / Support", desc: "Envoyer un message pour une question ou un problème.", url: base + "Contact-support.html", keywords: "contact support aide question message formulaire" }
+    { title: "Contact / Support", desc: "Envoyer un message pour une question ou un problème.", url: base + "Contact-Support.html", keywords: "contact support aide question message formulaire" }
   ];
 
   function openSearch(){

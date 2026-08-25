@@ -47,17 +47,17 @@
   var searchResults = document.querySelector(".search-results");
   var searchEmpty = document.querySelector(".search-empty");
 
-  // Base du site: racine "" pour les pages de niveau racine, "../" pour les pages du sous-dossier.
+  // Base du site : "" à la racine, "../" un niveau plus bas, "../../" deux niveaux plus bas.
   var base = document.body.getAttribute("data-base") || "";
 
   var SITE_INDEX = [
-    { title: "Accueil", desc: "Présentation du site et des outils.", url: base + "index.html", keywords: "accueil home pierrick outils" },
-    { title: "Import Tool for HelloAsso", desc: "Extension Google Sheets pour importer les données HelloAsso.", url: base + "Import-Tool-for-HelloAsso.html", keywords: "helloasso import sheets extension google api présentation" },
-    { title: "Documentation — Import Tool for HelloAsso", desc: "Guide d'installation, de configuration et d'utilisation.", url: base + "Import-Tool-for-HelloAsso/Documentation.html", keywords: "documentation guide installation configuration utilisation aide" },
-    { title: "Politique de confidentialité — Import Tool for HelloAsso", desc: "Données traitées, stockage et droits RGPD.", url: base + "Import-Tool-for-HelloAsso/Politique-de-confidentialite.html", keywords: "confidentialité rgpd données vie privée" },
-    { title: "Conditions d'utilisation — Import Tool for HelloAsso", desc: "Conditions générales d'utilisation de l'extension.", url: base + "Import-Tool-for-HelloAsso/Conditions-Utilisation.html", keywords: "cgu conditions utilisation licence" },
-    { title: "Mentions légales — Import Tool for HelloAsso", desc: "Éditeur, hébergement et propriété intellectuelle.", url: base + "Import-Tool-for-HelloAsso/Mentions-Legales.html", keywords: "mentions légales éditeur" },
-    { title: "Contact / Support", desc: "Envoyer un message pour une question ou un problème.", url: base + "Contact-Support.html", keywords: "contact support aide question message formulaire" }
+    { title: "Accueil", desc: "Présentation du site et des outils.", url: base + "", keywords: "accueil home pierrick outils" },
+    { title: "Import Tool for HelloAsso", desc: "Extension Google Sheets pour importer les données HelloAsso.", url: base + "Import-Tool-for-HelloAsso/", keywords: "helloasso import sheets extension google api présentation" },
+    { title: "Documentation — Import Tool for HelloAsso", desc: "Guide d'installation, de configuration et d'utilisation.", url: base + "Import-Tool-for-HelloAsso/Documentation/", keywords: "documentation guide installation configuration utilisation aide" },
+    { title: "Politique de confidentialité — Import Tool for HelloAsso", desc: "Données traitées, stockage et droits RGPD.", url: base + "Import-Tool-for-HelloAsso/Politique-de-confidentialite/", keywords: "confidentialité rgpd données vie privée" },
+    { title: "Conditions d'utilisation — Import Tool for HelloAsso", desc: "Conditions générales d'utilisation de l'extension.", url: base + "Import-Tool-for-HelloAsso/Conditions-Utilisation/", keywords: "cgu conditions utilisation licence" },
+    { title: "Mentions légales — Import Tool for HelloAsso", desc: "Éditeur, hébergement et propriété intellectuelle.", url: base + "Import-Tool-for-HelloAsso/Mentions-Legales/", keywords: "mentions légales éditeur hébergement" },
+    { title: "Contact / Support", desc: "Envoyer un message pour une question ou un problème.", url: base + "Contact-Support/", keywords: "contact support aide question message formulaire" }
   ];
 
   function openSearch(){

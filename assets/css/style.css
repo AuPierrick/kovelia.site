@@ -118,7 +118,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
 
 .site-header{
   position: sticky; top: 0; z-index: 100;
-  background: rgba(216,220,232,0.92);
+  background: rgba(246,247,250,0.92);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--line);
 }

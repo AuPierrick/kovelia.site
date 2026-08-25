@@ -159,6 +159,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
   display: flex;
   gap: 1.9rem;
   margin: 0; padding: 0;
+  align-items: center;
 }
 
 .main-nav a{
@@ -279,7 +280,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
   min-height: var(--subnav-h);
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .subnav-brand{

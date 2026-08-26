@@ -3,11 +3,19 @@
 
   /* ---------- Réduction du header/sous-menu au scroll ---------- */
   var COMPACT_THRESHOLD = 12;
-  var setCompact = function(){
+  var ticking = false;
+  var applyCompactState = function(){
     document.body.classList.toggle("is-compact", window.scrollY > COMPACT_THRESHOLD);
+    ticking = false;
+  };
+  var setCompact = function(){
+    if(!ticking){
+      window.requestAnimationFrame(applyCompactState);
+      ticking = true;
+    }
   };
   window.addEventListener("scroll", setCompact, { passive: true });
-  setCompact();
+  applyCompactState();
 
   /* ---------- Menu mobile ---------- */
   var navToggle = document.querySelector(".nav-toggle");

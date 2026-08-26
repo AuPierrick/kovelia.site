@@ -4,12 +4,22 @@
   /* ---------- Réduction continue du header/sous-menu au scroll ---------- */
   var SHRINK_DISTANCE = 40; // px de scroll sur lesquels la réduction s'étale
   var ticking = false;
+  var lastShrink = null;
   var applyScrollState = function(){
     var y = window.scrollY || window.pageYOffset || 0;
     if(y < 0) y = 0; // ignore le rebond élastique négatif de certains navigateurs/trackpads
     var t = Math.min(1, y / SHRINK_DISTANCE);
-    document.documentElement.style.setProperty("--shrink", t.toFixed(3));
-    document.body.classList.toggle("is-compact", t >= 1);
+    // N'écrit dans le DOM que si la valeur a réellement changé (évite tout recalcul
+    // de mise en page inutile une fois qu'on est stabilisé à 0 ou à 1).
+    if(lastShrink === null || Math.abs(t - lastShrink) > 0.004){
+      document.documentElement.style.setProperty("--shrink", t.toFixed(3));
+      lastShrink = t;
+    }
+    var wasCompact = document.body.classList.contains("is-compact");
+    var isCompact = t >= 1;
+    if(wasCompact !== isCompact){
+      document.body.classList.toggle("is-compact", isCompact);
+    }
     ticking = false;
   };
   var setCompact = function(){

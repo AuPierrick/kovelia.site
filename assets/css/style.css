@@ -335,7 +335,7 @@ body.is-compact .subnav-title{ font-size: .72rem; max-width: 170px; }
   font-weight: 500;
   transition: padding .18s ease;
 }
-body.is-compact .subnav a{ padding: .5em 0; }
+body.is-compact .subnav a{ padding: 2px 0; }
 .subnav a:hover{ color: var(--primary-dark); text-decoration: none; }
 .subnav a[aria-current="page"]{ color: var(--primary-dark); border-bottom-color: var(--primary); font-weight: 600; }
 

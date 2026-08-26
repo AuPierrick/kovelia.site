@@ -141,6 +141,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  will-change: height;
 }
 
 .brand{
@@ -294,6 +295,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  will-change: min-height;
 }
 
 .subnav-brand{
@@ -303,19 +305,23 @@ small, .eyebrow{ font-family: var(--font-mono); }
 }
 .subnav-brand:hover{ text-decoration: none; color: var(--primary-dark); }
 .subnav-brand .tool-mark{
-  height: calc((var(--subnav-h) - 10px) - ((var(--subnav-h) - 10px) - (var(--subnav-h-compact) - 6px)) * var(--shrink));
+  height: calc(var(--subnav-h) - 10px);
   width: auto;
   flex: none;
   border-radius: 6px;
+  transition: height .15s ease;
 }
+body.is-compact .subnav-brand .tool-mark{ height: calc(var(--subnav-h-compact) - 6px); }
 
 .subnav-title{
   display: block;
   line-height: 1.15;
-  font-size: calc(.84rem - .12rem * var(--shrink));
-  max-width: calc(150px + 20px * var(--shrink));
+  font-size: .84rem;
+  max-width: 150px;
   white-space: normal;
+  transition: font-size .15s ease;
 }
+body.is-compact .subnav-title{ font-size: .72rem; max-width: 170px; }
 
 .subnav ul{
   list-style: none; margin: 0; padding: 0;
@@ -325,10 +331,12 @@ small, .eyebrow{ font-family: var(--font-mono); }
   display: inline-block;
   font-size: .86rem;
   color: var(--ink-soft);
-  padding: calc(.6em - .55em * var(--shrink)) 0;
+  padding: .6em 0;
   border-bottom: 2px solid transparent;
   font-weight: 500;
+  transition: padding .15s ease;
 }
+body.is-compact .subnav a{ padding: .1em 0; }
 .subnav a:hover{ color: var(--primary-dark); text-decoration: none; }
 .subnav a[aria-current="page"]{ color: var(--primary-dark); border-bottom-color: var(--primary); font-weight: 600; }
 

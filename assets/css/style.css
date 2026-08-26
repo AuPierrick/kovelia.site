@@ -723,7 +723,9 @@ section.tight{ padding: 2.25rem 0; }
 
 @media (max-width: 700px){
   .main-nav{
-    position: fixed; inset: var(--header-h) 0 0 0;
+    position: fixed;
+    top: calc(var(--header-h) - (var(--header-h) - var(--header-h-compact)) * var(--shrink));
+    left: 0; right: 0; bottom: 0;
     background: var(--bg);
     flex-direction: column;
     align-items: stretch;
@@ -745,7 +747,36 @@ section.tight{ padding: 2.25rem 0; }
     border: none; background: transparent; cursor: pointer; color: var(--ink);
   }
   .nav-toggle svg{ width: 21px; height: 21px; }
+
+  /* Sous-menu "Import Tool for HelloAsso" : liste d'onglets en bandeau
+     défilable horizontalement plutôt qu'un retour à la ligne désordonné. */
+  .subnav-inner{
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: .9rem;
+  }
+  .subnav-brand{ flex: none; }
+  .subnav-title{ max-width: 120px; }
+  .subnav ul{
+    flex-wrap: nowrap;
+    gap: 1.1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .subnav ul::-webkit-scrollbar{ display: none; }
+  .subnav a{ white-space: nowrap; }
+
   .grid-3, .grid-2{ grid-template-columns: 1fr; }
   .footer-inner{ grid-template-columns: 1fr; }
   section{ padding: 2.5rem 0; }
+}
+
+@media (max-width: 420px){
+  .header-inner{ gap: .8rem; }
+  .brand{ font-size: 1rem; }
+  .hero{ padding: 3.25rem 0 2.5rem; }
+  .hero-cta .btn{ width: 100%; }
+  .contact-aside{ order: 2; }
 }

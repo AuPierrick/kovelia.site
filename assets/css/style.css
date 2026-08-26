@@ -120,7 +120,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
 
 .site-header{
   position: sticky; top: 0; z-index: 100;
-  background: rgba(246,247,250,0.92);
+  background: rgba(233,237,249,0.92);
   backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -163,6 +163,7 @@ body.is-compact .header-inner{ height: var(--header-h-compact); }
   display: flex;
   gap: 1.9rem;
   margin: 0; padding: 0;
+  align-items: center;
 }
 
 .main-nav a{
@@ -290,7 +291,7 @@ body.is-compact .subnav{ top: var(--header-h-compact); }
   min-height: var(--subnav-h);
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
   flex-wrap: wrap;
   transition: min-height .18s ease, padding .18s ease;
 }

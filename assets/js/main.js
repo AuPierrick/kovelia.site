@@ -1,21 +1,25 @@
 (function(){
   "use strict";
 
-  /* ---------- Réduction du header/sous-menu au scroll ---------- */
-  var COMPACT_THRESHOLD = 12;
+  /* ---------- Réduction continue du header/sous-menu au scroll ---------- */
+  var SHRINK_DISTANCE = 40; // px de scroll sur lesquels la réduction s'étale
   var ticking = false;
-  var applyCompactState = function(){
-    document.body.classList.toggle("is-compact", window.scrollY > COMPACT_THRESHOLD);
+  var applyScrollState = function(){
+    var y = window.scrollY || window.pageYOffset || 0;
+    if(y < 0) y = 0; // ignore le rebond élastique négatif de certains navigateurs/trackpads
+    var t = Math.min(1, y / SHRINK_DISTANCE);
+    document.documentElement.style.setProperty("--shrink", t.toFixed(3));
+    document.body.classList.toggle("is-compact", t >= 1);
     ticking = false;
   };
   var setCompact = function(){
     if(!ticking){
-      window.requestAnimationFrame(applyCompactState);
+      window.requestAnimationFrame(applyScrollState);
       ticking = true;
     }
   };
   window.addEventListener("scroll", setCompact, { passive: true });
-  applyCompactState();
+  applyScrollState();
 
   /* ---------- Menu mobile ---------- */
   var navToggle = document.querySelector(".nav-toggle");

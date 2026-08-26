@@ -298,7 +298,7 @@ body.is-compact .subnav{ top: var(--header-h-compact); }
 body.is-compact .subnav-inner{ min-height: var(--subnav-h-compact); padding: 2px 24px; }
 
 .subnav-brand{
-  display: flex; align-items: center; gap: .7em;
+  display: flex !important; align-items: center; gap: .7em;
   font-weight: 700; color: var(--ink);
   padding: .3em 0;
 }

@@ -1,6 +1,14 @@
 (function(){
   "use strict";
 
+  /* ---------- Réduction du header/sous-menu au scroll ---------- */
+  var COMPACT_THRESHOLD = 12;
+  var setCompact = function(){
+    document.body.classList.toggle("is-compact", window.scrollY > COMPACT_THRESHOLD);
+  };
+  window.addEventListener("scroll", setCompact, { passive: true });
+  setCompact();
+
   /* ---------- Menu mobile ---------- */
   var navToggle = document.querySelector(".nav-toggle");
   var mainNav = document.querySelector(".main-nav");

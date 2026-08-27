@@ -141,7 +141,6 @@ small, .eyebrow{ font-family: var(--font-mono); }
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  will-change: height;
 }
 
 .brand{
@@ -295,7 +294,6 @@ small, .eyebrow{ font-family: var(--font-mono); }
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  will-change: min-height;
 }
 
 .subnav-brand{
@@ -322,6 +320,8 @@ body.is-compact .subnav-brand .tool-mark{ height: calc(var(--subnav-h-compact) -
   transition: font-size .15s ease;
 }
 body.is-compact .subnav-title{ font-size: .72rem; max-width: 170px; }
+
+.subnav-toggle{ display: none; }
 
 .subnav ul{
   list-style: none; margin: 0; padding: 0;
@@ -748,16 +748,26 @@ section.tight{ padding: 2.25rem 0; }
   }
   .nav-toggle svg{ width: 21px; height: 21px; }
 
-  /* Sous-menu "Import Tool for HelloAsso" : liste d'onglets en bandeau
-     défilable horizontalement plutôt qu'un retour à la ligne désordonné. */
+  /* Sous-menu "Import Tool for HelloAsso" : repliable comme le menu principal,
+     liste d'onglets en bandeau défilable horizontalement une fois ouverte. */
   .subnav-inner{
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: .9rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5rem;
   }
   .subnav-brand{ flex: none; }
   .subnav-title{ max-width: 120px; }
+  .subnav-toggle{
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: var(--radius-s);
+    border: none; background: transparent; cursor: pointer; color: var(--ink-soft);
+  }
+  .subnav-toggle svg{ width: 19px; height: 19px; }
   .subnav ul{
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: .4rem;
     flex-wrap: nowrap;
     gap: 1.1rem;
     overflow-x: auto;
@@ -765,6 +775,7 @@ section.tight{ padding: 2.25rem 0; }
     scrollbar-width: none;
     padding-bottom: 2px;
   }
+  .subnav.open ul{ display: flex; }
   .subnav ul::-webkit-scrollbar{ display: none; }
   .subnav a{ white-space: nowrap; }
 

@@ -41,6 +41,16 @@
     });
   }
 
+  /* ---------- Sous-menu de section "Import Tool for HelloAsso" (mobile) ---------- */
+  var subnavToggle = document.querySelector(".subnav-toggle");
+  var subnavEl = document.querySelector(".subnav");
+  if(subnavToggle && subnavEl){
+    subnavToggle.addEventListener("click", function(){
+      var open = subnavEl.classList.toggle("open");
+      subnavToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
   /* ---------- Sous-menu "Outils" (dropdown) ---------- */
   document.querySelectorAll(".has-submenu").forEach(function(item){
     var btn = item.querySelector("button");

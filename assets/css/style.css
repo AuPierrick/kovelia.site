@@ -42,10 +42,11 @@
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; }
 
 body{
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
@@ -129,7 +130,6 @@ small, .eyebrow{ font-family: var(--font-mono); }
 
 .site-header{
   background: rgba(233,237,249,0.92);
-  backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -749,7 +749,7 @@ section.tight{ padding: 2.25rem 0; }
   .nav-toggle svg{ width: 21px; height: 21px; }
 
   /* Sous-menu "Import Tool for HelloAsso" : repliable comme le menu principal,
-     liste d'onglets en bandeau défilable horizontalement une fois ouverte. */
+     liste des pages affichée verticalement une fois ouverte. */
   .subnav-inner{
     flex-wrap: wrap;
     justify-content: space-between;
@@ -767,17 +767,18 @@ section.tight{ padding: 2.25rem 0; }
     display: none;
     width: 100%;
     order: 3;
-    margin-top: .4rem;
-    flex-wrap: nowrap;
-    gap: 1.1rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
+    margin: .4rem 0 .5rem;
+    flex-direction: column;
+    gap: 0;
   }
   .subnav.open ul{ display: flex; }
-  .subnav ul::-webkit-scrollbar{ display: none; }
-  .subnav a{ white-space: nowrap; }
+  .subnav a{
+    display: block;
+    width: 100%;
+    white-space: normal;
+    padding: .8em 0;
+    border-bottom: 1px solid var(--line);
+  }
 
   .grid-3, .grid-2{ grid-template-columns: 1fr; }
   .footer-inner{ grid-template-columns: 1fr; }

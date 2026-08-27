@@ -296,6 +296,12 @@ small, .eyebrow{ font-family: var(--font-mono); }
   flex-wrap: wrap;
 }
 
+.subnav-row{
+  display: flex;
+  align-items: center;
+  gap: .7em;
+}
+
 .subnav-brand{
   display: flex !important; align-items: center; gap: .7em;
   font-weight: 700; color: var(--ink);
@@ -754,11 +760,15 @@ section.tight{ padding: 2.25rem 0; }
   .nav-toggle svg{ width: 21px; height: 21px; }
 
   /* Sous-menu "Import Tool for HelloAsso" : repliable comme le menu principal,
-     liste des pages affichée verticalement une fois ouverte. */
+     liste des pages affichée verticalement une fois ouverte. La ligne
+     brand/toggle est isolée dans .subnav-row pour un alignement fiable. */
   .subnav-inner{
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: .5rem;
+  }
+  .subnav-row{
+    width: 100%;
+    justify-content: space-between;
   }
   .subnav-brand{ flex: none; }
   .subnav-title{ max-width: 120px; }
@@ -766,13 +776,11 @@ section.tight{ padding: 2.25rem 0; }
     display: inline-flex; align-items: center; justify-content: center;
     width: 34px; height: 34px; border-radius: var(--radius-s);
     border: none; background: transparent; cursor: pointer; color: var(--ink-soft);
-    margin-left: auto;
   }
   .subnav-toggle svg{ width: 19px; height: 19px; }
   .subnav ul{
     display: none;
     width: 100%;
-    order: 3;
     margin: .4rem 0 .5rem;
     flex-direction: column;
     gap: 0;

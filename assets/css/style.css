@@ -723,14 +723,10 @@ section.tight{ padding: 2.25rem 0; }
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .hero-visual{ order: -1; max-width: 300px; margin: 0 auto; }
-  .grid-3{ grid-template-columns: 1fr 1fr; }
   .doc-layout{ grid-template-columns: 1fr; }
   .doc-toc{ position: static; border-left: none; padding-left: 0; border-top: 2px solid var(--line); padding-top: 1rem; }
   .contact-layout{ grid-template-columns: 1fr; }
-  .footer-inner{ grid-template-columns: 1fr 1fr; }
-}
 
-@media (max-width: 700px){
   .header-inner{ justify-content: space-between; }
   .header-actions{ margin-left: auto; }
   .main-nav{

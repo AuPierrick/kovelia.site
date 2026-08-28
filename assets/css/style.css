@@ -334,7 +334,7 @@ body.is-compact .subnav-title{ font-size: .72rem; max-width: 170px; }
   list-style: none; margin: 0; padding: 0;
   display: flex; gap: 1.5rem; flex-wrap: wrap;
 }
-.subnav a{
+.subnav ul a{
   display: inline-block;
   font-size: .86rem;
   color: var(--ink-soft);
@@ -343,9 +343,9 @@ body.is-compact .subnav-title{ font-size: .72rem; max-width: 170px; }
   font-weight: 500;
   transition: padding .15s ease;
 }
-body.is-compact .subnav a{ padding: .1em 0; }
-.subnav a:hover{ color: var(--primary-dark); text-decoration: none; }
-.subnav a[aria-current="page"]{ color: var(--primary-dark); border-bottom-color: var(--primary); font-weight: 600; }
+body.is-compact .subnav ul a{ padding: .1em 0; }
+.subnav ul a:hover{ color: var(--primary-dark); text-decoration: none; }
+.subnav ul a[aria-current="page"]{ color: var(--primary-dark); border-bottom-color: var(--primary); font-weight: 600; }
 
 /* ---------------- Hero ---------------- */
 
@@ -778,10 +778,6 @@ section.tight{ padding: 2.25rem 0; }
     flex-shrink: 0;
     margin-left: auto;
   }
-   a.subnav-brand {
-    border-bottom: none !important;
-    width: auto !important;
-   }
   .subnav-toggle svg{ width: 19px; height: 19px; flex-shrink: 0; }
   .subnav ul{
     display: none;
@@ -791,12 +787,19 @@ section.tight{ padding: 2.25rem 0; }
     gap: 0;
   }
   .subnav.open ul{ display: flex; }
-  .subnav a{
+  .subnav ul a{
     display: block;
     width: 100%;
     white-space: normal;
     padding: .8em 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  /* Filet de sécurité : empêche tout style de liste de déteindre sur le lien
+     du logo (rapporté par Pierrick — voir a.subnav-brand ci-dessous). */
+  a.subnav-brand{
+    border-bottom: none !important;
+    width: auto !important;
   }
 
   .grid-3, .grid-2{ grid-template-columns: 1fr; }

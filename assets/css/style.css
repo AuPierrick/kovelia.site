@@ -778,6 +778,10 @@ section.tight{ padding: 2.25rem 0; }
     flex-shrink: 0;
     margin-left: auto;
   }
+   a.subnav-brand {
+    border-bottom: none;
+    width: auto;
+   }
   .subnav-toggle svg{ width: 19px; height: 19px; flex-shrink: 0; }
   .subnav ul{
     display: none;
@@ -787,10 +791,6 @@ section.tight{ padding: 2.25rem 0; }
     gap: 0;
   }
   .subnav.open ul{ display: flex; }
-   a.subnav-brand {
-    border-bottom: none !important;
-    width: auto !important;
-   }
   .subnav a{
     display: block;
     width: 100%;

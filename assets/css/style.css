@@ -788,8 +788,8 @@ section.tight{ padding: 2.25rem 0; }
   }
   .subnav.open ul{ display: flex; }
    a.subnav-brand {
-    border-bottom: none;
-    width: auto;
+    border-bottom: none !important;
+    width: auto !important;
    }
   .subnav a{
     display: block;

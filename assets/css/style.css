@@ -787,6 +787,10 @@ section.tight{ padding: 2.25rem 0; }
     gap: 0;
   }
   .subnav.open ul{ display: flex; }
+   a.subnav-brand {
+    border-bottom: none;
+    width: auto;
+   }
   .subnav a{
     display: block;
     width: 100%;

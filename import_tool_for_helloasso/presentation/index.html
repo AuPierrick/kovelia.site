@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Import Tool for HelloAsso — Extension Google Sheets | kovelia</title>
-<meta name="description" content="Import Tool for HelloAsso : extension Google Sheets indépendante pour importer, actualiser et mettre en forme les données de vos formulaires HelloAsso.">
+<meta name="description" content="Import Tool for HelloAsso : extension Google Sheets indépendante pour importer, nettoyer et mettre en forme les données de vos formulaires HelloAsso.">
 <link rel="icon" href="../../assets/img/import-tool-helloasso-icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,8 +90,8 @@
     <div class="container hero-inner">
       <div>
         <span class="status-badge"><span class="dot"></span> Gratuit · Extension Google Sheets</span>
-        <h1 style="margin-top:.6em;">Vos données HelloAsso, proprement rangées dans Google Sheets.</h1>
-        <p class="lede">Import Tool for HelloAsso se connecte à l'API HelloAsso et importe vos inscriptions, présences et paiements directement dans votre feuille de calcul — sans export manuel, sans copier-coller.</p>
+        <h1 style="margin-top:.6em;">Vos données de formulaires HelloAsso, importées et nettoyées dans Google Sheets.</h1>
+        <p class="lede">Import Tool for HelloAsso importe, nettoie et met en forme les données d'enregistrement de vos formulaires HelloAsso directement dans votre feuille de calcul — sans export manuel, sans copier-coller.</p>
         <div class="hero-cta">
           <a href="../documentation/" class="btn btn-primary">Voir la documentation</a>
           <a href="../../contact_support/" class="btn btn-ghost">Une question ? Contactez-moi</a>
@@ -120,17 +120,26 @@
   <section class="tight">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Fonctionnalités</p>
-        <h2>Ce que l'extension permet de faire</h2>
+        <p class="eyebrow">✨ Les principaux atouts</p>
+        <h2>Pensé pour un usage réel, en association</h2>
       </div>
-      <ul class="feature-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg><div><strong>Import de formulaires HelloAsso</strong><span>Récupérez les données d'un ou plusieurs formulaires directement dans votre feuille.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4v5h5M20 20v-5h-5M4.5 9a8 8 0 0114-4M19.5 15a8 8 0 01-14 4"/></svg><div><strong>Actualisation des données</strong><span>Remettez à jour une feuille déjà importée sans tout réimporter à la main.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg><div><strong>Transformation et mise en forme</strong><span>Les données sont organisées et normalisées automatiquement à l'écriture.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 12l2 2 4-4M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/></svg><div><strong>Import des présences</strong><span>Suivez les présences à vos événements en les comparant aux inscriptions.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19h16M4 15l4-4 3 3 5-6 4 4"/></svg><div><strong>Journaux d'exécution</strong><span>Consultez ce qui a été importé et repérez rapidement une éventuelle erreur.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 3H2l8 9.5V19l4 2v-8.5L22 3z"/></svg><div><strong>Sélection et filtrage</strong><span>Choisissez précisément les formulaires et les champs à importer.</span></div></li>
-      </ul>
+      <div class="grid grid-3">
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 14a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 10a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>
+          <h3>Multi-connexions API</h3>
+          <p>Gérez plusieurs connexions API correspondant à différents comptes associatifs HelloAsso.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="15" cy="12" r="2"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="18" r="2"/></svg>
+          <h3>Automatisation des paramètres d'import</h3>
+          <p>Sauvegardez les paramètres de nettoyage et de mise en forme des données par association, type d'import et type de formulaire.</p>
+        </div>
+        <div class="card">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <h3>Travail collaboratif</h3>
+          <p>Si le Google Sheets est partagé, les paramètres de connexion API HelloAsso et les paramètres d'import peuvent être partagés avec les autres utilisateurs.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -138,13 +147,39 @@
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Fonctionnement</p>
-        <h2>Comment ça marche</h2>
+        <h2>Comment ça fonctionne ?</h2>
+        <p>Une fois installée, Import Tool for HelloAsso donne accès à plusieurs outils via le menu des extensions de Google Sheets. Ouvrez ou rechargez votre feuille, puis allez dans <strong>Extensions&nbsp;→ Import Tool for HelloAsso</strong> pour accéder aux différents outils.</p>
+        <div class="callout">Au premier lancement d'un des outils, il vous faudra accepter les 3 autorisations demandées par une fenêtre Google — c'est nécessaire au bon fonctionnement de l'extension.</div>
       </div>
       <ol class="steps">
-        <li><h3>Connectez votre compte HelloAsso</h3><p>Renseignez le Client ID et le Client Secret de votre organisation, disponibles depuis votre espace HelloAsso.</p></li>
-        <li><h3>Choisissez ce que vous voulez importer</h3><p>Sélectionnez le ou les formulaires concernés, ainsi que le type de données à récupérer.</p></li>
-        <li><h3>Lancez l'import</h3><p>L'extension récupère les données via l'API HelloAsso et les écrit dans votre Google Sheets.</p></li>
-        <li><h3>Actualisez quand vous le souhaitez</h3><p>Relancez un import pour mettre à jour votre feuille sans dupliquer les données déjà présentes.</p></li>
+        <li>
+          <h3>🔑 Paramètres Connexion</h3>
+          <p>Permet d'établir, tester et partager plusieurs connexions API HelloAsso.</p>
+          <ul>
+            <li>Une seule connexion API HelloAsso peut être active par Google Sheets.</li>
+            <li>La connexion active peut être changée à tout moment via cet outil.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="req-badge">Connexion API HelloAsso active requise</span>
+          <h3>📥 Import Formulaires</h3>
+          <p>Permet de rechercher et sélectionner un ou plusieurs formulaires, de paramétrer et de lancer l'import.</p>
+          <ul>
+            <li>Sélection d'un type d'import préparamétré.</li>
+            <li>Personnalisation des paramètres d'import (nettoyage et mise en forme).</li>
+            <li>Sauvegarde des paramètres d'import personnalisés par association, type d'import et type de formulaire.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="req-badge">Connexion API HelloAsso active requise</span>
+          <h3>🔃 Actualisation Feuille active</h3>
+          <p>Permet de mettre à jour les données d'un formulaire déjà importé en utilisant les paramètres de nettoyage et de mise en forme précédemment définis. Pour cela, il suffit d'aller sur le tableau à actualiser et de lancer l'outil.</p>
+          <div class="callout">⚠️ Important : pour le bon fonctionnement de l'outil, ne modifiez pas manuellement les noms des feuilles et les noms des colonnes directement dans Google Sheets.</div>
+        </li>
+        <li>
+          <h3>📋 Import Présences</h3>
+          <p>Permet d'importer dans un formulaire les présences récoltées via l'application mobile HelloAsso Scan, en utilisant son extraction CSV. Plus de détails sont disponibles dans la <a href="../documentation/">Documentation</a>.</p>
+        </li>
       </ol>
     </div>
   </section>

@@ -459,6 +459,30 @@ section.tight{ padding: 2.25rem 0; }
   font-weight: 600;
 }
 .status-badge .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--gradient-brand); }
+.status-badge.upcoming{ color: var(--secondary-dark); background: var(--secondary-tint); }
+.status-badge.upcoming .dot{ background: var(--secondary); }
+
+.card ul.card-list{
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+  display: grid;
+  gap: .7em;
+}
+.card ul.card-list li{
+  display: flex;
+  gap: .6em;
+  font-size: .93rem;
+  color: var(--ink-soft);
+}
+.card ul.card-list li::before{
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  margin-top: .5em;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
 
 /* ---------------- Feature grid on tool page ---------------- */
 

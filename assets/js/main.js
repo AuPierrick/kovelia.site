@@ -278,8 +278,44 @@
         return;
       }
 
-      // Le formulaire est valide : il est laissé à l'action définie sur le <form>
-      // (voir commentaire HTML pour la configuration de l'envoi).
+      // Le formulaire est valide : envoi en AJAX vers FormSubmit, sans quitter la page.
+      e.preventDefault();
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var ajaxUrl = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+      if(submitBtn) submitBtn.disabled = true;
+      if(statusEl){
+        statusEl.textContent = "Envoi en cours…";
+        statusEl.className = "form-status show";
+      }
+
+      fetch(ajaxUrl, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      })
+        .then(function(response){
+          if(!response.ok) throw new Error("Réponse serveur invalide");
+          return response.json();
+        })
+        .then(function(){
+          form.reset();
+          newCaptcha();
+          if(statusEl){
+            statusEl.textContent = "Merci, votre message a bien été envoyé ! Nous vous répondrons dès que possible.";
+            statusEl.className = "form-status show ok";
+          }
+        })
+        .catch(function(){
+          if(statusEl){
+            statusEl.textContent = "L'envoi a échoué. Merci de réessayer dans un instant, ou de nous écrire directement si le problème persiste.";
+            statusEl.className = "form-status show err";
+          }
+        })
+        .finally(function(){
+          if(submitBtn) submitBtn.disabled = false;
+        });
     });
   }
 })();

@@ -166,7 +166,7 @@
   /* ---------- Sommaire actif sur pages légales ---------- */
   var tocLinks = document.querySelectorAll(".doc-toc a");
   if(tocLinks.length){
-    var headings = Array.prototype.slice.call(document.querySelectorAll(".doc-content h2[id]"));
+    var headings = Array.prototype.slice.call(document.querySelectorAll(".doc-content h2[id], .doc-content h3[id]"));
     var setActive = function(){
       var pos = window.scrollY + 140;
       var current = headings[0];

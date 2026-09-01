@@ -517,7 +517,7 @@ section.tight{ padding: 2.25rem 0; }
   font-weight: 700;
   display: flex; align-items: center; justify-content: center;
 }
-.steps h3{ margin-bottom: .25em; font-size: 1.02rem; }
+.steps h3, .steps h4{ margin-bottom: .25em; font-size: 1.02rem; }
 .steps p{ margin: 0; font-size: .91rem; }
 .steps p + p{ margin-top: .6em; }
 .steps ul{
@@ -559,6 +559,20 @@ section.tight{ padding: 2.25rem 0; }
 .doc-toc a:hover{ color: var(--primary-dark); text-decoration: none; }
 .doc-toc li.active a{ color: var(--primary-dark); font-weight: 600; }
 
+.doc-toc-groups{ gap: 1.4rem; }
+.doc-toc-groups > li{ display: grid; gap: .5em; }
+.doc-toc-groups > li + li{ margin-top: .3rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.doc-toc-group-label{
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--ink);
+}
+.doc-toc-groups ul{ gap: .5em; padding-left: .1rem; }
+
 .doc-content{
   background: var(--surface);
   border: 1px solid var(--line);
@@ -592,8 +606,12 @@ section.tight{ padding: 2.25rem 0; }
   color: var(--primary-dark);
 }
 .doc-content h3{
-  font-size: 1.02rem;
-  margin: 1.6em 0 .5em;
+  font-size: 1.15rem;
+  margin: 2em 0 .6em;
+}
+.doc-content h4{
+  font-size: 1rem;
+  margin: 1.5em 0 .5em;
 }
 .doc-content .subsection{
   margin: 1.6em 0;
@@ -601,8 +619,36 @@ section.tight{ padding: 2.25rem 0; }
   background: var(--surface-alt);
   border-radius: var(--radius-m);
 }
-.doc-content .subsection h3{ margin-top: 0; }
+.doc-content .subsection h4{ margin-top: 0; }
 .doc-content .subsection + .subsection{ margin-top: 1rem; }
+
+.doc-content .doc-part{
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--line);
+}
+.doc-content .doc-part:first-of-type{
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.doc-content .doc-part-eyebrow{
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--primary-dark);
+  background: var(--primary-tint);
+  padding: .3em .7em;
+  border-radius: var(--radius-s);
+  margin-bottom: .7em;
+  font-weight: 600;
+}
+.doc-content .doc-part h2{
+  font-size: 1.65rem;
+  margin-top: 0;
+}
 .callout{
   background: var(--surface-alt);
   border-left: 3px solid var(--accent);

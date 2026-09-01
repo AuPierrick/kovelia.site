@@ -571,6 +571,7 @@ section.tight{ padding: 2.25rem 0; }
   font-weight: 700;
   color: var(--ink);
   font-weight: bold;
+  text-decoration: underline;
 }
 .doc-toc-groups ul{ gap: .5em; padding-left: .1rem; }
 

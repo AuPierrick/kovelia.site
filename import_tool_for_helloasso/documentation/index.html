@@ -111,8 +111,8 @@
         <span class="updated">Dernière mise à jour : 22/08/2026</span>
 
         <h2 id="installation">Installation</h2>
-        <p>L'extension s'installe depuis le Google Workspace Marketplace, directement dans un Google Sheets. Une fois installée, elle apparaît dans le menu <strong>Extensions</strong> de votre feuille de calcul.</p>
-        <div class="callout">Un compte Google disposant d'un accès à Google Sheets est nécessaire pour installer et utiliser l'extension.</div>
+        <p>L'extension s'installe depuis le Google Workspace Marketplace, directement dans un Google Sheets™. Une fois installée, elle apparaît dans le menu <strong>Extensions</strong> de votre feuille de calcul.</p>
+        <div class="callout">Un compte Google disposant d'un accès à Google Sheets™ est nécessaire pour installer et utiliser l'extension.</div>
 
         <h2 id="connexion">Connexion à HelloAsso</h2>
         <p>Pour importer vos données, l'extension doit s'authentifier auprès de l'API HelloAsso à l'aide d'un <strong>organizationSlug</strong>, d'un <strong>Client ID</strong> et d'un <strong>Client Secret</strong>, propres à votre organisation. Ces informations se configurent dans l'outil <strong>🔑 Paramètres Connexion</strong>.</p>
@@ -129,7 +129,7 @@
 
         <h2 id="regles-importantes">☝️ Règles importantes</h2>
         <p>Pour qu'Import Tool for HelloAsso puisse retrouver correctement les données et appliquer vos paramètres, certaines informations générées automatiquement doivent rester inchangées.</p>
-        <div class="callout">⚠️ À retenir&nbsp;: ne modifiez pas manuellement, dans le Google Sheets, les noms des feuilles ou les noms des colonnes. Ces informations sont utilisées par les fonctionnalités d'import et d'actualisation.</div>
+        <div class="callout">⚠️ À retenir&nbsp;: ne modifiez pas manuellement, dans le Google Sheets™, les noms des feuilles ou les noms des colonnes. Ces informations sont utilisées par les fonctionnalités d'import et d'actualisation.</div>
 
         <h3>📄 Ne modifiez pas les noms des feuilles</h3>
         <p>Les noms des feuilles permettent à l'outil de retrouver les tableaux existants lors d'une actualisation. Si vous les modifiez :</p>
@@ -169,7 +169,7 @@
         <div class="callout">⚠️ Les paramètres affichés, enregistrés ou renseignés dépendent à la fois de la connexion API HelloAsso active, du type d'import et du type de formulaire.</div>
 
         <h2 id="colonnes-specifiques">⤵️ Inclure des colonnes spécifiques</h2>
-        <p>Ce paramètre, disponible dans l'onglet <strong>Ordonnancement</strong>, permet d'ajouter une colonne aux données HelloAsso, que vous pouvez ensuite remplir directement dans le Google Sheets. Son contenu est conservé après le prochain import de mise à jour, tant que vous gardez les mêmes éléments dans ce paramètre.</p>
+        <p>Ce paramètre, disponible dans l'onglet <strong>Ordonnancement</strong>, permet d'ajouter une colonne aux données HelloAsso, que vous pouvez ensuite remplir directement dans le Google Sheets™. Son contenu est conservé après le prochain import de mise à jour, tant que vous gardez les mêmes éléments dans ce paramètre.</p>
         <p>Cela permet d'enrichir les données HelloAsso tout en conservant les informations ajoutées lors des mises à jour suivantes.</p>
         <p>Cette conservation repose sur une autre colonne « clé », qui doit contenir des valeurs uniques (sans doublon) et stables dans le temps. On utilise généralement les colonnes <code>items.user.nameKey</code> ou <code>items.id</code>.</p>
         <div class="callout">Si ces colonnes ont été renommées, il faudra utiliser leur nouveau nom comme colonne clé.</div>
@@ -178,7 +178,7 @@
         <p>Une feuille déjà importée peut être actualisée à tout moment avec l'outil <strong>🔃 Actualisation Feuille active</strong> : il suffit d'aller sur le tableau à actualiser et de lancer l'outil, qui applique les mêmes paramètres de nettoyage et de mise en forme que lors du premier import.</p>
 
         <h2 id="import-presences">Import des présences</h2>
-        <p>L'outil <strong>📋 Import Présences</strong> permet d'importer, dans un formulaire déjà présent dans votre Google Sheets, les présences récoltées via l'application mobile HelloAsso Scan, à partir de son export CSV.</p>
+        <p>L'outil <strong>📋 Import Présences</strong> permet d'importer, dans un formulaire déjà présent dans votre Google Sheets™, les présences récoltées via l'application mobile HelloAsso Scan, à partir de son export CSV.</p>
         <ol class="steps">
           <li><h3>Récupérez le CSV des présences</h3><p>Depuis l'application HelloAsso Scan, exportez le CSV des présences de l'événement concerné.</p></li>
           <li><h3>Ouvrez le tableau concerné</h3><p>Allez sur le tableau dont vous voulez importer les présences. Il doit comporter une colonne nommée <code>Présence</code> (paramétrée via <a href="#colonnes-specifiques">⤵️ Inclure dans les données des colonnes spécifiques</a>), avec une liste déroulante ❌ / ✅.</p></li>
@@ -195,7 +195,7 @@
         <h3>Problème d'autorisations</h3>
         <p>Lors du premier lancement d'Import Tool for HelloAsso, vous devez valider des autorisations Google. Si vous ne l'avez pas fait, vous pouvez réinitialiser ces autorisations pour pouvoir les accepter à nouveau au prochain lancement de l'extension, depuis <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">la page de gestion des accès tiers de votre compte Google</a> : sélectionnez Import Tool for HelloAsso dans la liste, puis réinitialisez les droits liés à cette extension via le bouton « Supprimer tous les liens et arrêter de partager les données… » en bas de page.</p>
         <p>Il arrive parfois que, même après validation, Google vous redemande ces autorisations parce qu'il les a réinitialisées de son côté. Aucune inquiétude : validez-les à nouveau comme la première fois.</p>
-        <div class="callout">Veillez à ce que le compte Google connecté dans votre navigateur soit le même que celui utilisé pour ouvrir le Google Sheets, et que celui avec lequel vous avez donné les 3 autorisations. Dans le cas contraire, des conflits de droits peuvent survenir.</div>
+        <div class="callout">Veillez à ce que le compte Google connecté dans votre navigateur soit le même que celui utilisé pour ouvrir le Google Sheets™, et que celui avec lequel vous avez donné les 3 autorisations. Dans le cas contraire, des conflits de droits peuvent survenir.</div>
 
         <h3>OAuth error&nbsp;: error code 1015</h3>
         <p>Ce message provient d'un problème serveur, côté Google ou côté HelloAsso, indépendant de l'extension. Il n'y a rien d'autre à faire que patienter jusqu'à ce que la situation se rétablisse.</p>
@@ -214,7 +214,7 @@
         <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="brandGrad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3D4EFF"/><stop offset="100%" stop-color="#FF6B35"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#brandGrad6)"/><g fill="none" stroke="#F3F0FE" stroke-width="3"><rect x="14" y="14" width="36" height="36" rx="4"/><line x1="14" y1="26" x2="50" y2="26"/><line x1="14" y1="38" x2="50" y2="38"/><line x1="26" y1="14" x2="26" y2="50"/><line x1="38" y1="14" x2="38" y2="50"/></g><rect x="27" y="27" width="11" height="11" fill="#00C08B"/></svg>
         kovelia
       </div>
-      <p class="footer-note">Outils pratiques développés pour simplifier la gestion des données, pensés notamment pour les associations qui utilisent Google Sheets.</p>
+      <p class="footer-note">Outils pratiques développés pour simplifier la gestion des données, pensés notamment pour les associations qui utilisent Google Sheets™.</p>
     </div>
     <div class="footer-col">
       <h4>Import Tool for HelloAsso</h4>

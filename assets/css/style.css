@@ -570,6 +570,7 @@ section.tight{ padding: 2.25rem 0; }
   letter-spacing: .06em;
   font-weight: 700;
   color: var(--ink);
+  font-weight: bold;
 }
 .doc-toc-groups ul{ gap: .5em; padding-left: .1rem; }
 

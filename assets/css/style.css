@@ -610,10 +610,12 @@ section.tight{ padding: 2.25rem 0; }
 .doc-content h3{
   font-size: 1.15rem;
   margin: 2em 0 .6em;
+  scroll-margin-top: calc(var(--header-h) + var(--subnav-h) + 20px);
 }
 .doc-content h4{
   font-size: 1rem;
   margin: 1.5em 0 .5em;
+  scroll-margin-top: calc(var(--header-h) + var(--subnav-h) + 20px);
 }
 .doc-content .subsection{
   margin: 1.6em 0;

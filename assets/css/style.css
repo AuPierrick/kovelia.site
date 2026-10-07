@@ -44,6 +44,10 @@
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; overflow-x: clip; }
 
+/* Tout élément ciblé par une ancre (#...) doit s'arrêter sous la barre fixe
+   (header + sous-menu), quel que soit le type d'élément ou la page. */
+[id]{ scroll-margin-top: calc(var(--header-h) + var(--subnav-h) + 20px); }
+
 body{
   margin: 0;
   overflow-x: clip;
@@ -414,10 +418,12 @@ section.tight{ padding: 2.25rem 0; }
 }
 .card h3{ margin-bottom: .4em; }
 .card .card-icon{
+  display: block;
   width: 36px; height: 36px;
   color: var(--primary);
   margin-bottom: .9rem;
 }
+.card .status-badge + .card-icon{ margin-top: .8em; }
 .card p{ margin-bottom: 0; font-size: .93rem; }
 
 .tool-card{
@@ -501,11 +507,11 @@ section.tight{ padding: 2.25rem 0; }
 /* ---------------- Steps ---------------- */
 
 .steps{ counter-reset: step; list-style: none; margin: 0; padding: 0; display: grid; gap: 1.3rem; }
-.steps li{
+.steps > li{
   position: relative;
   padding-left: 3.1rem;
 }
-.steps li::before{
+.steps > li::before{
   counter-increment: step;
   content: counter(step);
   position: absolute; left: 0; top: 0;

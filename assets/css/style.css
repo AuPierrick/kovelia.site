@@ -937,3 +937,51 @@ section.tight{ padding: 2.25rem 0; }
   .hero-cta .btn{ width: 100%; }
   .contact-aside{ order: 2; }
 }
+
+/* ---------------- Documentation : tableaux et illustrations ---------------- */
+
+.doc-content .doc-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: .9rem;
+}
+.doc-content .doc-table th,
+.doc-content .doc-table td{
+  text-align: left;
+  vertical-align: top;
+  padding: .65em .9em;
+  border-bottom: 1px solid var(--line);
+}
+.doc-content .doc-table th{
+  background: var(--surface-alt);
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line-strong);
+}
+.doc-content .doc-table td:first-child{ white-space: nowrap; color: var(--ink); }
+.doc-content .doc-table td:last-child{ color: var(--ink-soft); }
+@media (max-width: 600px){
+  .doc-content .doc-table{ display: block; overflow-x: auto; }
+}
+
+/* Illustration finale (à utiliser à la place d'un .callout-placeholder) :
+   <figure class="doc-figure"><img src="..." alt="..."><figcaption>...</figcaption></figure> */
+.doc-content .doc-figure{
+  margin: 1.4em 0;
+}
+.doc-content .doc-figure img{
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  margin: 0 auto;
+}
+.doc-content .doc-figure figcaption{
+  margin-top: .6em;
+  text-align: center;
+  font-size: .82rem;
+  color: var(--ink-faint);
+}
+
+/* Listes ordonnées simples dans les encarts (export / import de paramètres) */
+.doc-content .subsection ol{ color: var(--ink-soft); padding-left: 1.3em; margin: .5em 0 0; }

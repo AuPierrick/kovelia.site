@@ -160,6 +160,7 @@ small, .eyebrow{ font-family: var(--font-mono); }
 }
 .brand:hover{ text-decoration: none; color: var(--ink); }
 .brand .mark{ width: 28px; height: 28px; flex: none; }
+.image_doc{ margin: 10px; border: 1px solid; border-radius: 10px;}
 
 .main-nav{
   margin-left: auto;

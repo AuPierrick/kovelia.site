@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Documentation — Import Tool for HelloAsso | kovelia</title>
-<meta name="description" content="Documentation de l'extension Import Tool for HelloAsso : installation, configuration de la connexion API, types d'import et dépannage.">
+<meta name="description" content="Documentation de l'extension Import Tool for HelloAsso : installation, connexion API et partage, import de formulaires, paramètres, actualisation, présences et dépannage.">
 <link rel="icon" href="../../assets/img/logo_kovelia.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/css/fonts.css">
 <link rel="stylesheet" href="../../assets/css/style.css">
@@ -92,16 +92,22 @@
           <li>
             <span class="doc-toc-group-label"><a href="#utilisation">Utilisation</a></span>
             <ul>
+              <li><a href="#presentation-outil">Ce que permet l'outil</a></li>
               <li><a href="#installation">Installation</a></li>
+              <li><a href="#demarrage-rapide">Démarrage rapide</a></li>
               <li><a href="#connexion">Connexion à HelloAsso</a></li>
+              <li><a href="#gerer-connexions">Gérer ses connexions</a></li>
+              <li><a href="#partage-connexion">Partager une connexion</a></li>
               <li><a href="#regles-importantes">Règles importantes</a></li>
               <li><a href="#lancer-un-import">Lancer un import</a></li>
               <li><a href="#types-dimport">Les types d'import</a></li>
               <li><a href="#parametres-personnalises">Paramètres d'import personnalisés</a></li>
               <li><a href="#colonnes-specifiques">Inclure des colonnes spécifiques</a></li>
-              <li><a href="#actualiser-une-feuille">Actualiser une feuille</a></li>
+              <li><a href="#partage-parametres">Partager ses paramètres d'import</a></li>
+              <li><a href="#actualiser-une-feuille">Actualiser des feuilles</a></li>
               <li><a href="#import-presences">Import des présences</a></li>
               <li><a href="#journaux">Journaux d'exécution</a></li>
+              <li><a href="#confidentialite-securite">Confidentialité et sécurité</a></li>
             </ul>
           </li>
           <li>
@@ -109,6 +115,7 @@
             <ul>
               <li><a href="#autorisations">Problème d'autorisations</a></li>
               <li><a href="#oauth-1015">OAuth error : error code 1015</a></li>
+              <li><a href="#autres-problemes">Autres problèmes fréquents</a></li>
             </ul>
           </li>
         </ul>
@@ -117,18 +124,55 @@
       <article class="doc-content">
         <p class="eyebrow" style="margin-bottom:.4em;">Documentation</p>
         <h1 style="margin-bottom:.2em;">Guide d'utilisation d'Import Tool for HelloAsso</h1>
-        <span class="updated">Dernière mise à jour : 22/08/2026</span>
+        <span class="updated">Dernière mise à jour : 10/10/2026</span>
 
         <div class="doc-part">
           <p class="doc-part-eyebrow">Partie 1</p>
           <h2 id="utilisation" style="text-decoration: underline; font-weight: bold;">Utilisation</h2>
 
+          <h3 id="presentation-outil">Ce que permet l'outil</h3>
+          <p>Import Tool for HelloAsso est une extension de Google Sheets™ destinée aux associations qui utilisent HelloAsso. Elle récupère les données de vos formulaires (adhésions, événements, dons, boutique…), les nettoie, les met en forme et les écrit directement dans votre classeur, sans manipulation manuelle d'exports. Elle permet de :</p>
+          <ul>
+            <li>vous connecter à votre association HelloAsso, en <strong>Production</strong> ou en <strong>Sandbox</strong> (environnement de test de HelloAsso), détectés automatiquement ;</li>
+            <li>importer un ou plusieurs formulaires d'un seul coup, sous quatre présentations : Brute, Résumé, Gestion et Finance ;</li>
+            <li>personnaliser le nettoyage, l'ordre des colonnes et la mise en forme de chaque présentation ;</li>
+            <li>actualiser en quelques clics les feuilles déjà importées ;</li>
+            <li>partager une connexion avec les autres personnes du classeur <strong>sans leur révéler vos identifiants</strong> ;</li>
+            <li>partager vos réglages d'import d'un classeur à un autre ;</li>
+            <li>reporter dans une feuille les présences d'un événement à partir d'un fichier CSV.</li>
+          </ul>
+
           <h3 id="installation">Installation</h3>
           <p>L'extension s'installe depuis le Google Workspace Marketplace, directement dans un Google Sheets™. Une fois installée, elle apparaît dans le menu <strong>Extensions</strong> de votre feuille de calcul.</p>
-          <div class="callout">Un compte Google disposant d'un accès à Google Sheets™ est nécessaire pour installer et utiliser l'extension.</div>
+          <div class="callout">Un compte Google disposant d'un accès à Google Sheets™ est nécessaire pour installer et utiliser l'extension, ainsi qu'un droit d'<strong>édition</strong> sur le classeur dans lequel vous l'utilisez.</div>
+
+          <p>Le menu <strong>Extensions → Import Tool for HelloAsso</strong> propose cinq entrées :</p>
+          <table class="doc-table">
+            <thead><tr><th>Entrée</th><th>Rôle</th></tr></thead>
+            <tbody>
+              <tr><td>🔑 Paramètres Connexion</td><td>Créer, tester, partager, activer et supprimer vos connexions HelloAsso</td></tr>
+              <tr><td>📥 Import Formulaires</td><td>Importer un ou plusieurs formulaires et régler les imports</td></tr>
+              <tr><td>🔃 Actualisation Feuille(s) sélectionnée(s)</td><td>Mettre à jour des feuilles déjà importées</td></tr>
+              <tr><td>📋 Import Présences</td><td>Reporter les présences d'un fichier CSV dans une feuille</td></tr>
+              <tr><td>ℹ️ Documentation</td><td>Ouvrir cette documentation et la présentation de l'outil</td></tr>
+            </tbody>
+          </table>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (le menu Extensions ouvert, avec les cinq entrées de l'extension bien visibles)</p>
+
+          <p>À la première ouverture d'une fenêtre de l'extension, Google vous demande d'autoriser l'application. Elle demande uniquement l'accès au <strong>classeur dans lequel vous l'utilisez</strong> (aucun autre fichier de votre Drive) et à votre <strong>adresse e-mail</strong>, utilisée pour identifier l'auteur d'un partage de connexion (voir <a href="#partage-connexion">Partager une connexion</a>).</p>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (l'écran d'autorisation Google, avec la liste des deux autorisations demandées)</p>
+
+          <h3 id="demarrage-rapide">Démarrage rapide</h3>
+          <ol class="steps">
+            <li><h4>Configurez la connexion</h4><p>Dans <strong>🔑 Paramètres Connexion</strong>, ajoutez votre association (organizationSlug, Client ID, Client Secret), cliquez sur <strong>Test connexion</strong>, puis sur <strong>Activer</strong>.</p></li>
+            <li><h4>Choisissez les formulaires</h4><p>Dans <strong>📥 Import Formulaires</strong>, cochez un ou plusieurs formulaires.</p></li>
+            <li><h4>Choisissez le type d'import</h4><p>Brute, Résumé, Gestion ou Finance.</p></li>
+            <li><h4>Lancez l'import</h4><p>Cliquez sur <strong>Importer</strong> : une feuille est créée (ou mise à jour) pour chaque formulaire. Pour la rafraîchir plus tard, utilisez <strong>🔃 Actualisation Feuille(s) sélectionnée(s)</strong>.</p></li>
+          </ol>
 
           <h3 id="connexion">Connexion à HelloAsso</h3>
-          <p>Pour importer vos données, l'extension doit s'authentifier auprès de l'API HelloAsso à l'aide d'un <strong>organizationSlug</strong>, d'un <strong>Client ID</strong> et d'un <strong>Client Secret</strong>, propres à votre organisation. Ces informations se configurent dans l'outil <strong>🔑 Paramètres Connexion</strong>.</p>
+          <p>Pour importer vos données, l'extension doit s'authentifier auprès de l'API HelloAsso à l'aide d'un <strong>organizationSlug</strong>, d'un <strong>Client ID</strong> et d'un <strong>Client Secret</strong>, propres à votre organisation. Ces informations se configurent dans l'outil <strong>🔑 Paramètres Connexion</strong>, qui affiche une carte par connexion.</p>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (la fenêtre Paramètres Connexion avec deux cartes : une connexion active à barre verte et une connexion non active)</p>
 
           <div class="subsection">
             <h4>Trouver le organizationSlug</h4>
@@ -139,23 +183,76 @@
             <h4>Trouver le Client ID et le Client Secret</h4>
             <p>Depuis votre interface HelloAsso, rendez-vous dans <strong>Mon compte → Intégration et API</strong>. HelloAsso propose un guide dédié à la création de ces identifiants dans cette section.</p>
           </div>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (la page HelloAsso « Intégration et API » avec le slug dans l'URL, le Client ID et le Client Secret repérés)</p>
+          <div class="callout">⚠️ Le Client Secret est l'équivalent d'un mot de passe : ne l'envoyez jamais par e-mail ou par messagerie. Pour donner accès à d'autres personnes, utilisez le <a href="#partage-connexion">partage de connexion</a>.</div>
+
+          <h3 id="gerer-connexions">Gérer ses connexions</h3>
+          <div class="subsection">
+            <h4>Ajouter une connexion</h4>
+            <p>Cliquez sur <strong>➕ Ajouter une connexion</strong> : une nouvelle carte apparaît, centrée dans la fenêtre. Renseignez les trois champs ; ils sont enregistrés automatiquement lorsque vous quittez un champ. Dès que les trois champs sont remplis, les boutons <strong>Test connexion</strong> et <strong>Activer</strong> deviennent disponibles.</p>
+          </div>
+          <div class="subsection">
+            <h4>Tester la connexion</h4>
+            <p>Cliquez sur <strong>🔌 Test connexion</strong> : l'extension vérifie vos identifiants auprès de HelloAsso et détermine seule s'il s'agit de l'environnement <strong>Production</strong> ou <strong>Sandbox</strong> (signalé par le badge 🧪 Sandbox).</p>
+            <ul>
+              <li>Après un premier test réussi, le <strong>organizationSlug ne peut plus être modifié</strong> : pour en changer, supprimez la connexion et recréez-la.</li>
+              <li>Une association ne peut avoir qu'<strong>une seule connexion par environnement</strong>. Si elle existe déjà (par exemple partagée par un collègue), l'extension l'indique et vous redirige vers la carte existante.</li>
+              <li>Pendant un test, une activation, un partage ou une suppression, la fenêtre est momentanément grisée : c'est normal.</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h4>Activer une connexion</h4>
+            <p>Cliquez sur <strong>✅ Activer</strong> pour choisir la connexion utilisée par vos imports. Le bouton est grisé sur la connexion déjà active, repérable à sa barre verte.</p>
+            <p><strong>La connexion active vous est personnelle</strong> : dans un même classeur, chaque personne a la sienne, et votre choix n'affecte pas celui des autres. Si vous n'avez aucune connexion active et qu'une seule connexion vous est accessible, elle est activée automatiquement à l'ouverture de <strong>📥 Import Formulaires</strong>.</p>
+          </div>
+          <div class="subsection">
+            <h4>Supprimer une connexion</h4>
+            <p>Cliquez sur <strong>❌ Supprimer</strong>. Une connexion partagée peut être supprimée par son <strong>auteur</strong> ou par le <strong>propriétaire du classeur</strong> (qui retire alors seulement la copie partagée). Les autres personnes ne le peuvent pas.</p>
+          </div>
+
+          <h3 id="partage-connexion">Partager une connexion</h3>
+          <p>Une fois la connexion testée avec succès, cochez la case <strong>Connexion partagée</strong>. Les autres personnes ayant accès au classeur pourront alors <strong>tester, activer et utiliser</strong> cette connexion pour leurs propres imports. Pour elles :</p>
+          <ul>
+            <li>le Client Secret n'est <strong>jamais visible</strong> et le Client ID est masqué ;</li>
+            <li>les champs sont en lecture seule : seul l'<strong>auteur</strong> peut modifier la connexion ou arrêter de la partager ;</li>
+            <li>la mention « 🔗 Partagée par adresse@exemple.fr » indique l'auteur du partage. Cette adresse est visible des personnes du classeur.</li>
+          </ul>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (une carte de connexion partagée vue par un non-auteur : champs en lecture seule, ID masqué, mention « Partagée par… », boutons Test connexion et Activer disponibles)</p>
+          <div class="callout">Une connexion en brouillon (jamais testée avec succès) ne peut pas être partagée.</div>
 
           <h3 id="regles-importantes">☝️ Règles importantes</h3>
           <p>Pour qu'Import Tool for HelloAsso puisse retrouver correctement les données et appliquer vos paramètres, certaines informations générées automatiquement doivent rester inchangées.</p>
-          <div class="callout">⚠️ À retenir&nbsp;: ne modifiez pas manuellement, dans le Google Sheets™, les noms des feuilles ou les noms des colonnes. Ces informations sont utilisées par les fonctionnalités d'import et d'actualisation.</div>
+          <div class="callout">⚠️ À retenir&nbsp;: ne modifiez pas manuellement, dans le Google Sheets™, les <strong>noms des colonnes</strong> ni les <strong>feuilles importées</strong> elles-mêmes (suppression de l'en-tête, déplacement de colonnes importées). Ces informations sont utilisées par les fonctionnalités d'import et d'actualisation.</div>
 
-          <h4>📄 Ne modifiez pas les noms des feuilles</h4>
-          <p>Les noms des feuilles permettent à l'outil de retrouver les tableaux existants lors d'une actualisation. Si vous les modifiez :</p>
+          <h4>📄 Les noms des feuilles sont libres</h4>
+          <p>Vous pouvez <strong>renommer librement</strong> une feuille importée : le lien avec l'import est conservé, et l'actualisation continue de fonctionner. En revanche :</p>
           <ul>
-            <li>🔃 <strong>Actualisation Feuille active</strong> ne fonctionnera plus ;</li>
-            <li>📥 <strong>Import Formulaires</strong> pourra créer une nouvelle feuille au lieu de réutiliser une feuille déjà existante, si cet import avait déjà été réalisé.</li>
+            <li><strong>Dupliquer</strong> une feuille dans le même classeur produit une copie <strong>non liée</strong> à l'import : elle ne peut pas être actualisée. Pour la retrouver, relancez un import depuis <strong>📥 Import Formulaires</strong> ;</li>
+            <li>copier une feuille vers un autre classeur, ou copier le classeur entier, conserve le lien : la feuille n'est alors actualisable que si vous disposez d'une connexion à la même association et au même environnement ;</li>
+            <li>une feuille importée en Sandbox n'est jamais mise à jour par un import en Production, et inversement ;</li>
+            <li>les feuilles créées avec d'anciennes versions de l'extension ne peuvent pas être actualisées : refaites simplement un import.</li>
           </ul>
 
           <h4>📋 Ne modifiez pas les noms des colonnes</h4>
           <p>Certains paramètres d'import utilisent les noms des colonnes pour identifier les données. Une modification manuelle des noms de colonnes pourrait donc empêcher certains paramètres — notamment <a href="#colonnes-specifiques">⤵️ Inclure dans les données des colonnes spécifiques</a> — de fonctionner correctement.</p>
 
           <h3 id="lancer-un-import">Lancer un import</h3>
-          <p>Depuis le menu <strong>Extensions → Import Tool for HelloAsso</strong>, ouvrez l'outil <strong>📥 Import Formulaires</strong>. Sélectionnez le ou les formulaires HelloAsso à importer, choisissez un type d'import, personnalisez éventuellement les paramètres, puis lancez l'import.</p>
+          <p>Depuis le menu <strong>Extensions → Import Tool for HelloAsso</strong>, ouvrez l'outil <strong>📥 Import Formulaires</strong>. La fenêtre liste les formulaires de l'association de votre connexion active.</p>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (la fenêtre Import Formulaires : bandeau de connexion en haut, barre de recherche, filtres, liste de formulaires avec pastilles d'état, type d'import et bouton Importer en bas)</p>
+          <ol class="steps">
+            <li><h4>Trouvez vos formulaires</h4><p>Utilisez la barre <strong>Rechercher un formulaire…</strong> et les filtres <strong>Type</strong>, <strong>État</strong>, <strong>Début ≥</strong> et <strong>Fin ≤</strong>. Les pastilles d'état reprennent celles de HelloAsso : <strong>Public</strong> (vert), <strong>Private</strong> (orange), <strong>Draft</strong> (gris), <strong>Disabled</strong> (rouge).</p></li>
+            <li><h4>Cochez un ou plusieurs formulaires</h4><p>Vous pouvez en sélectionner plusieurs et les importer en une seule fois.</p></li>
+            <li><h4>Choisissez un type d'import</h4><p>Les quatre types sont décrits <a href="#types-dimport">ci-dessous</a>. Personnalisez éventuellement les <a href="#parametres-personnalises">paramètres d'import</a>.</p></li>
+            <li><h4>Cliquez sur « Importer »</h4><p>Les formulaires sont traités <strong>un par un</strong>.</p></li>
+          </ol>
+          <p>Pendant l'import, un indicateur affiche « Feuille i/n : nom du formulaire » et un journal détaille la progression :</p>
+          <ul>
+            <li>une erreur sur un formulaire <strong>n'empêche pas</strong> l'import des suivants ;</li>
+            <li>le bouton <strong>Interrompre</strong> arrête le formulaire en cours ; les suivants sont alors indiqués « non traités ».</li>
+          </ul>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (l'écran de suivi pendant l'import de plusieurs formulaires : cercle de chargement, « Feuille 2/3 », journal, bouton Interrompre)</p>
+          <p>À la fin, un résumé indique le nombre de feuilles actualisées ou en échec, le nombre de lignes et le temps total, avec un lien vers chaque feuille. La mention 🆕 signale une feuille créée, ♻️ une feuille mise à jour. Importer à nouveau le même formulaire avec le même type d'import <strong>met à jour la feuille existante</strong> au lieu d'en créer une autre. La dernière feuille importée devient la feuille active.</p>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (le résumé final avec les mentions 🆕 feuille créée et ♻️ feuille actualisée, et les liens vers les feuilles)</p>
 
           <h3 id="types-dimport">Les types d'import</h3>
           <p>Quatre types d'import sont proposés en bas de la fenêtre :</p>
@@ -177,9 +274,48 @@
           </div>
 
           <h3 id="parametres-personnalises">Paramètres d'import personnalisés</h3>
-          <p>Une fois un type d'import autre que « Brute » sélectionné, un lien s'affiche donnant accès au paramétrage de l'import. Il est organisé en plusieurs onglets ; les paramètres sont exécutés dans l'ordre — de haut en bas au sein d'un onglet, puis de gauche à droite entre les onglets.</p>
-          <p>Si vous changez la sélection de type d'import ou de formulaire, les paramètres déjà renseignés sont conservés : les paramètres précédemment enregistrés pour cette combinaison vous sont réaffichés automatiquement.</p>
-          <div class="callout">⚠️ Les paramètres affichés, enregistrés ou renseignés dépendent à la fois de la connexion API HelloAsso active, du type d'import et du type de formulaire.</div>
+          <p>Une fois un type d'import autre que « Brute » sélectionné, le lien <strong>Afficher les paramètres d'import &gt;&gt;</strong> s'affiche sous les types d'import. Il fait glisser un panneau de réglages ; <strong>&lt;&lt; Afficher la sélection de formulaire</strong> permet de revenir à la liste. Il est organisé en plusieurs onglets ; les paramètres sont exécutés dans l'ordre — de haut en bas au sein d'un onglet, puis de gauche à droite entre les onglets.</p>
+          <p>Les réglages sont distincts pour chaque combinaison <strong>type d'import × type de formulaire</strong> (Event, Shop, Membership, Donation, CrowdFunding, PaymentForm, Checkout), choisie avec la liste « Formulaire » en haut du panneau. Si vous changez la sélection de type d'import ou de formulaire, les paramètres déjà renseignés sont conservés : les paramètres précédemment enregistrés pour cette combinaison vous sont réaffichés automatiquement. Des valeurs par défaut sont fournies.</p>
+          <div class="callout">⚠️ Les paramètres affichés, enregistrés ou renseignés dépendent à la fois de la connexion API HelloAsso active, du type d'import et du type de formulaire. Ils sont enregistrés dans le classeur.</div>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (le panneau de paramètres ouvert : en-tête avec la liste « Formulaire », les trois onglets Transformation / Ordonnancement / Mise en forme, et les boutons du bas)</p>
+
+          <div class="subsection">
+            <h4>Onglet « Transformation »</h4>
+            <p>Nettoyage et modification des données :</p>
+            <ul>
+              <li>🧹 <strong>Sélection de colonnes</strong> : exclure ou garder des colonnes selon la fin de leur nom ;</li>
+              <li>🔁 <strong>Remplacer les valeurs vides</strong> par une valeur de votre choix ;</li>
+              <li><strong>Fusion de colonnes</strong> : regrouper plusieurs colonnes en une seule, selon un morceau de leur nom ou selon leurs noms exacts, avec le séparateur de votre choix ;</li>
+              <li>🔽 <strong>Filtre par colonne</strong> : ne garder que les lignes qui respectent une condition (égal, différent, supérieur, commence par, contient…) ;</li>
+              <li>✒️ <strong>Renommage de colonnes</strong> ;</li>
+              <li>⤵️ <strong>Inclure des colonnes spécifiques</strong> : voir <a href="#colonnes-specifiques">ci-dessous</a>.</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h4>Onglet « Ordonnancement »</h4>
+            <ul>
+              <li>#️⃣ <strong>Ordre des colonnes</strong> : choisir les colonnes à conserver et leur ordre, avec le choix entre « Toutes les colonnes » et « Que les colonnes listées » ;</li>
+              <li>📶 <strong>Tri par colonne</strong> : ascendant ou descendant.</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h4>Onglet « Mise en forme »</h4>
+            <ul>
+              <li>🧊 <strong>Figer les colonnes</strong> de gauche jusqu'à une colonne donnée ;</li>
+              <li>🌈 <strong>Couleurs</strong> du tableau et de l'onglet ;</li>
+              <li>↔️ <strong>Largeurs de colonnes</strong> forcées ;</li>
+              <li>📚 <strong>Mise en forme conditionnelle</strong> : colorer des cellules selon leur valeur ;</li>
+              <li>🧾 <strong>Liste déroulante</strong> : transformer une colonne en liste de choix.</li>
+            </ul>
+          </div>
+
+          <h4>Conseils de saisie</h4>
+          <ul>
+            <li>Le bouton <strong>+</strong> ajoute une ligne de réglage, le <strong>❌</strong> la supprime, et la poignée permet de les réordonner par glisser-déposer.</li>
+            <li>Les champs de noms de colonnes proposent des <strong>suggestions</strong> (« Guide à la saisie ») : ce sont les noms réels des colonnes de vos formulaires HelloAsso, rechargés à chaque ouverture du panneau. Une connexion active valide est nécessaire.</li>
+            <li><strong>🔷 Paramètres par défaut</strong> rétablit les réglages d'origine pour la combinaison affichée ; <strong>Vider les paramètres 🗑️</strong> les efface.</li>
+          </ul>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (un champ de nom de colonne avec sa liste de suggestions déroulée, et une zone de paramètres avec plusieurs lignes ajoutées par « + »)</p>
 
           <h3 id="colonnes-specifiques">⤵️ Inclure des colonnes spécifiques</h3>
           <p>Ce paramètre, disponible dans l'onglet <strong>Ordonnancement</strong>, permet d'ajouter une colonne aux données HelloAsso, que vous pouvez ensuite remplir directement dans le Google Sheets™. Son contenu est conservé après le prochain import de mise à jour, tant que vous gardez les mêmes éléments dans ce paramètre.</p>
@@ -187,21 +323,66 @@
           <p>Cette conservation repose sur une autre colonne « clé », qui doit contenir des valeurs uniques (sans doublon) et stables dans le temps. On utilise généralement les colonnes <code>items.user.nameKey</code> ou <code>items.id</code>.</p>
           <div class="callout">Si ces colonnes ont été renommées, il faudra utiliser leur nouveau nom comme colonne clé.</div>
 
-          <h3 id="actualiser-une-feuille">Actualiser une feuille</h3>
-          <p>Une feuille déjà importée peut être actualisée à tout moment avec l'outil <strong>🔃 Actualisation Feuille active</strong> : il suffit d'aller sur le tableau à actualiser et de lancer l'outil, qui applique les mêmes paramètres de nettoyage et de mise en forme que lors du premier import.</p>
+          <h3 id="partage-parametres">Partager ses paramètres d'import</h3>
+          <p>Les boutons <strong>⬆️</strong> (exporter) et <strong>⬇️</strong> (importer) du panneau de paramètres permettent de copier vos réglages d'un classeur à un autre. À ne pas confondre avec le <a href="#partage-connexion">partage de connexion</a>, qui ne transmet jamais d'identifiants.</p>
+          <div class="subsection">
+            <h4>Exporter</h4>
+            <ol>
+              <li>Cliquez sur ⬆️.</li>
+              <li>Cochez les types d'import, les types de formulaire et les types de paramètres (Transformation, Ordonnancement, Mise en forme) à exporter, au moins une case par catégorie.</li>
+              <li>Cliquez sur <strong>📤 Récupérer</strong>, puis sur <strong>📋 Copier</strong> pour copier le texte généré.</li>
+            </ol>
+          </div>
+          <div class="subsection">
+            <h4>Importer</h4>
+            <ol>
+              <li>Dans l'autre classeur, cliquez sur ⬇️ et collez le texte copié.</li>
+              <li>Cliquez sur <strong>⬇️ Importer</strong> pour obtenir un aperçu.</li>
+              <li>Cliquez sur <strong>✅ Appliquer</strong> pour valider. Chaque combinaison est appliquée indépendamment : une combinaison invalide n'empêche pas les autres.</li>
+            </ol>
+          </div>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (la fenêtre d'export avec ses trois zones de cases à cocher, puis la fenêtre d'import avec l'aperçu avant application)</p>
+
+          <h3 id="actualiser-une-feuille">Actualiser des feuilles</h3>
+          <p>Les feuilles déjà importées peuvent être actualisées à tout moment avec l'outil <strong>🔃 Actualisation Feuille(s) sélectionnée(s)</strong>. Il applique les mêmes paramètres de nettoyage et de mise en forme que lors du premier import. La fenêtre liste, dans l'ordre de vos onglets, les feuilles que vous pouvez actualiser, avec leur formulaire, leur type d'import, l'association, la mention 🧪 Sandbox le cas échéant et l'indication « 🔗 partagée » ou « privée » pour la connexion utilisée.</p>
+          <ol class="steps">
+            <li><h4>Cochez les feuilles</h4><p>La feuille active est pré-cochée ; <strong>Tout cocher</strong> sélectionne l'ensemble de la liste. (Google Sheets™ ne permet pas aux extensions de lire les onglets sélectionnés avec Ctrl/Maj + clic : la sélection se fait donc dans la fenêtre.)</p></li>
+            <li><h4>Lancez l'actualisation</h4><p>Les feuilles sont traitées <strong>une par une</strong>, chacune avec la connexion qui lui correspond.</p></li>
+            <li><h4>Consultez le résumé</h4><p>Feuilles actualisées, en échec ou non traitées, avec des liens directs.</p></li>
+          </ol>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (la liste à cocher des feuilles avec la feuille active pré-cochée, le bouton « Tout cocher » et les badges Sandbox / partagée)</p>
+          <ul>
+            <li>Seules les feuilles pour lesquelles <strong>vous disposez d'une connexion</strong> (partagée ou à vous) sont proposées. Si la feuille active n'est pas actualisable, la fenêtre en explique la raison (ancienne feuille à réimporter, aucune connexion disponible, feuille non liée à un import).</li>
+            <li>Une erreur sur une feuille n'arrête pas les suivantes.</li>
+            <li><strong>Interrompre</strong> arrête l'actualisation après la feuille en cours ; fermer la fenêtre a le même effet.</li>
+            <li>L'extension vérifie que le formulaire existe toujours dans HelloAsso avant d'actualiser.</li>
+          </ul>
 
           <h3 id="import-presences">Import des présences</h3>
           <p>L'outil <strong>📋 Import Présences</strong> permet d'importer, dans un formulaire déjà présent dans votre Google Sheets™, les présences récoltées via l'application mobile HelloAsso Scan, à partir de son export CSV.</p>
           <ol class="steps">
-            <li><h4>Récupérez le CSV des présences</h4><p>Depuis l'application HelloAsso Scan, exportez le CSV des présences de l'événement concerné.</p></li>
-            <li><h4>Ouvrez le tableau concerné</h4><p>Allez sur le tableau dont vous voulez importer les présences. Il doit comporter une colonne nommée <code>Présence</code> (paramétrée via <a href="#colonnes-specifiques">⤵️ Inclure dans les données des colonnes spécifiques</a>), avec une liste déroulante ❌ / ✅.</p></li>
+            <li><h4>Récupérez le CSV des présences</h4><p>Depuis l'application HelloAsso Scan, exportez le CSV des présences de l'événement concerné. Il doit contenir au minimum les colonnes <code>Nom</code> et <code>Prénom</code>.</p></li>
+            <li><h4>Ouvrez le tableau concerné</h4><p>Allez sur le tableau dont vous voulez importer les présences. Il doit comporter une colonne <code>Inscrit</code> et une colonne nommée <code>Présence</code> (paramétrée via <a href="#colonnes-specifiques">⤵️ Inclure dans les données des colonnes spécifiques</a>), avec une liste déroulante ❌ / ✅. Les majuscules et les accents des en-têtes n'ont pas d'importance ; les noms de la colonne <code>Inscrit</code> doivent être au format <strong>Prénom NOM</strong> (par exemple « Claire DUPONT »).</p></li>
             <li><h4>Lancez l'outil</h4><p>Ouvrez <strong>📋 Import Présences</strong> depuis le menu de l'extension.</p></li>
             <li><h4>Sélectionnez le CSV</h4><p>Choisissez le fichier CSV exporté depuis HelloAsso Scan.</p></li>
-            <li><h4>Importez</h4><p>Cliquez sur le bouton « Importer » : la colonne <code>Présence</code> se remplit automatiquement.</p></li>
+            <li><h4>Importez</h4><p>Cliquez sur le bouton « Importer » : la colonne <code>Présence</code> se remplit automatiquement, avec ✅ si la personne figure dans le CSV et ❌ sinon.</p></li>
           </ol>
+          <p class="callout-placeholder">📷 Ajouter une image d'illustration (une feuille avec les colonnes Inscrit et Présence remplies de ✅ et ❌, à côté de la fenêtre de sélection du fichier CSV)</p>
+          <div class="callout">La colonne <code>Présence</code> est entièrement réécrite à chaque import. Une personne dont l'écriture diffère (accent, faute de frappe, ordre prénom/nom) est marquée ❌ : vérifiez ces cas à la main.</div>
+          <p>Si une colonne est absente, un message l'indique : « Colonnes manquantes dans la feuille active » (colonnes <code>Inscrit</code> et/ou <code>Présence</code>), « Colonnes manquantes dans le CSV » (colonnes <code>Nom</code> et/ou <code>Prénom</code>) ou « CSV vide ».</p>
 
           <h3 id="journaux">Journaux d'exécution</h3>
-          <p>Chaque import génère un journal consultable depuis l'extension, indiquant les opérations effectuées et les éventuelles erreurs rencontrées, ce qui facilite le diagnostic en cas de problème.</p>
+          <p>Chaque import génère un journal consultable depuis l'extension, indiquant les opérations effectuées et les éventuelles erreurs rencontrées, ce qui facilite le diagnostic en cas de problème. Le journal est propre à chaque personne et à chaque classeur : plusieurs personnes peuvent importer en même temps sans voir ni mélanger leurs journaux.</p>
+
+          <h3 id="confidentialite-securite">Confidentialité et sécurité</h3>
+          <ul>
+            <li><strong>Vos données</strong> : elles sont lues auprès de HelloAsso et écrites dans <strong>votre</strong> classeur Google Sheets™. L'extension n'a pas accès à vos autres fichiers.</li>
+            <li><strong>Vos identifiants</strong> : le Client Secret n'est jamais affiché de nouveau, ni transmis aux personnes avec lesquelles vous partagez une connexion : elles utilisent la connexion sans jamais le connaître.</li>
+            <li><strong>Votre adresse e-mail</strong> : elle sert uniquement à identifier l'auteur d'un partage de connexion, et est visible des personnes ayant accès au classeur lorsqu'une connexion est partagée.</li>
+            <li><strong>Contenu des cellules</strong> : les valeurs importées sont neutralisées pour qu'un texte issu d'un formulaire ne puisse pas s'exécuter comme une formule dans votre feuille.</li>
+            <li><strong>Bonne pratique</strong> : ne partagez une connexion qu'avec des personnes de confiance ; en cas de doute sur la confidentialité de vos identifiants, régénérez-les dans HelloAsso puis mettez la connexion à jour.</li>
+          </ul>
+          <p>Pour plus de détails, consultez la <a href="../privacy/">Politique de confidentialité</a>.</p>
         </div>
 
         <div class="doc-part">
@@ -210,11 +391,41 @@
 
           <h3 id="autorisations">Problème d'autorisations</h3>
           <p>Lors du premier lancement d'Import Tool for HelloAsso, vous devez valider des autorisations Google. Si vous ne l'avez pas fait, vous pouvez réinitialiser ces autorisations pour pouvoir les accepter à nouveau au prochain lancement de l'extension, depuis <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">la page de gestion des accès tiers de votre compte Google</a> : sélectionnez Import Tool for HelloAsso dans la liste, puis réinitialisez les droits liés à cette extension via le bouton « Supprimer tous les liens et arrêter de partager les données… » en bas de page.</p>
-          <p>Il arrive parfois que, même après validation, Google vous redemande ces autorisations parce qu'il les a réinitialisées de son côté. Aucune inquiétude : validez-les à nouveau comme la première fois.</p>
+          <p>Il arrive parfois que, même après validation, Google vous redemande ces autorisations parce qu'il les a réinitialisées de son côté, ou après une mise à jour de l'extension qui modifie les autorisations demandées. Aucune inquiétude : validez-les à nouveau comme la première fois.</p>
           <div class="callout">Veillez à ce que le compte Google connecté dans votre navigateur soit le même que celui utilisé pour ouvrir le Google Sheets™, et que celui avec lequel vous avez donné les autorisations. Dans le cas contraire, des conflits de droits peuvent survenir.</div>
 
           <h3 id="oauth-1015">OAuth error&nbsp;: error code 1015</h3>
           <p>Ce message provient d'un problème serveur, côté Google ou côté HelloAsso, indépendant de l'extension. Il n'y a rien d'autre à faire que patienter jusqu'à ce que la situation se rétablisse.</p>
+
+          <h3 id="autres-problemes">Autres problèmes fréquents</h3>
+          <div class="subsection">
+            <h4>Le bouton « Importer » est grisé</h4>
+            <p>Vérifiez qu'au moins un formulaire est coché et qu'un type d'import est sélectionné.</p>
+          </div>
+          <div class="subsection">
+            <h4>« Connexion active introuvable »</h4>
+            <p>La connexion a probablement été supprimée (par exemple par son auteur). Ouvrez <strong>🔑 Paramètres Connexion</strong> et activez-en une autre.</p>
+          </div>
+          <div class="subsection">
+            <h4>Le test de connexion échoue</h4>
+            <p>Vérifiez le slug (minuscules, sans adresse complète), le Client ID et le Client Secret, et que l'accès à l'API est bien activé dans votre espace HelloAsso.</p>
+          </div>
+          <div class="subsection">
+            <h4>La liste des formulaires est vide ou incomplète</h4>
+            <p>Contrôlez l'association et l'environnement de la connexion active, ainsi que les filtres Type, État et dates. Un bouton de nouvelle tentative est proposé en cas d'échec du chargement.</p>
+          </div>
+          <div class="subsection">
+            <h4>Une feuille n'apparaît pas dans l'actualisation</h4>
+            <p>Elle est soit ancienne (refaites un import), soit liée à une association ou un environnement pour lesquels vous n'avez pas de connexion, soit non liée à un import (par exemple une feuille dupliquée).</p>
+          </div>
+          <div class="subsection">
+            <h4>Un import est très long</h4>
+            <p>La fenêtre peut rester ouverte pendant le traitement ; utilisez <strong>Interrompre</strong> si besoin. Pour de très gros formulaires, importez-les un à la fois.</p>
+          </div>
+          <div class="subsection">
+            <h4>Les suggestions de noms de colonnes n'apparaissent pas</h4>
+            <p>Elles se chargent à l'ouverture du panneau de paramètres et nécessitent une connexion active valide.</p>
+          </div>
         </div>
 
         <p style="margin-top:2em;">Si un problème persiste après ces vérifications, la page <a href="../../contact_support/">Contact / Support</a> permet de le signaler.</p>

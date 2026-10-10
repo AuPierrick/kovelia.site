@@ -157,6 +157,7 @@
               <tr><td>ℹ️ Documentation</td><td>Ouvrir cette documentation et la présentation de l'outil</td></tr>
             </tbody>
           </table>
+          <img src="../../assets/img/Accès Import Tool for HelloAsso.png" alt="kovelia" class="mark">
           <p class="callout-placeholder">📷 Ajouter une image d'illustration (le menu Extensions ouvert, avec les cinq entrées de l'extension bien visibles)</p>
 
           <p>À la première ouverture d'une fenêtre de l'extension, Google vous demande d'autoriser l'application. Elle demande uniquement l'accès au <strong>classeur dans lequel vous l'utilisez</strong> (aucun autre fichier de votre Drive) et à votre <strong>adresse e-mail</strong>, utilisée pour identifier l'auteur d'un partage de connexion (voir <a href="#partage-connexion">Partager une connexion</a>).</p>
@@ -172,6 +173,7 @@
 
           <h3 id="connexion">Connexion à HelloAsso</h3>
           <p>Pour importer vos données, l'extension doit s'authentifier auprès de l'API HelloAsso à l'aide d'un <strong>organizationSlug</strong>, d'un <strong>Client ID</strong> et d'un <strong>Client Secret</strong>, propres à votre organisation. Ces informations se configurent dans l'outil <strong>🔑 Paramètres Connexion</strong>, qui affiche une carte par connexion.</p>
+          <img src="../../assets/img/Paramètres connexion.png" alt="kovelia" class="mark">
           <p class="callout-placeholder">📷 Ajouter une image d'illustration (la fenêtre Paramètres Connexion avec deux cartes : une connexion active à barre verte et une connexion non active)</p>
 
           <div class="subsection">
@@ -238,6 +240,7 @@
 
           <h3 id="lancer-un-import">Lancer un import</h3>
           <p>Depuis le menu <strong>Extensions → Import Tool for HelloAsso</strong>, ouvrez l'outil <strong>📥 Import Formulaires</strong>. La fenêtre liste les formulaires de l'association de votre connexion active.</p>
+          <img src="../../assets/img/FormSelector.png" alt="kovelia" class="mark">
           <p class="callout-placeholder">📷 Ajouter une image d'illustration (la fenêtre Import Formulaires : bandeau de connexion en haut, barre de recherche, filtres, liste de formulaires avec pastilles d'état, type d'import et bouton Importer en bas)</p>
           <ol class="steps">
             <li><h4>Trouvez vos formulaires</h4><p>Utilisez la barre <strong>Rechercher un formulaire…</strong> et les filtres <strong>Type</strong>, <strong>État</strong>, <strong>Début ≥</strong> et <strong>Fin ≤</strong>. Les pastilles d'état reprennent celles de HelloAsso : <strong>Public</strong> (vert), <strong>Private</strong> (orange), <strong>Draft</strong> (gris), <strong>Disabled</strong> (rouge).</p></li>
@@ -350,6 +353,7 @@
             <li><h4>Lancez l'actualisation</h4><p>Les feuilles sont traitées <strong>une par une</strong>, chacune avec la connexion qui lui correspond.</p></li>
             <li><h4>Consultez le résumé</h4><p>Feuilles actualisées, en échec ou non traitées, avec des liens directs.</p></li>
           </ol>
+          <img src="../../assets/img/Actualisation Feuille(s) sélectionnée(s).png" alt="kovelia" class="mark">
           <p class="callout-placeholder">📷 Ajouter une image d'illustration (la liste à cocher des feuilles avec la feuille active pré-cochée, le bouton « Tout cocher » et les badges Sandbox / partagée)</p>
           <ul>
             <li>Seules les feuilles pour lesquelles <strong>vous disposez d'une connexion</strong> (partagée ou à vous) sont proposées. Si la feuille active n'est pas actualisable, la fenêtre en explique la raison (ancienne feuille à réimporter, aucune connexion disponible, feuille non liée à un import).</li>
@@ -367,6 +371,7 @@
             <li><h4>Sélectionnez le CSV</h4><p>Choisissez le fichier CSV exporté depuis HelloAsso Scan.</p></li>
             <li><h4>Importez</h4><p>Cliquez sur le bouton « Importer » : la colonne <code>Présence</code> se remplit automatiquement, avec ✅ si la personne figure dans le CSV et ❌ sinon.</p></li>
           </ol>
+          <img src="../../assets/img/Import fichier CSV.png" alt="kovelia" class="mark">
           <p class="callout-placeholder">📷 Ajouter une image d'illustration (une feuille avec les colonnes Inscrit et Présence remplies de ✅ et ❌, à côté de la fenêtre de sélection du fichier CSV)</p>
           <div class="callout">La colonne <code>Présence</code> est entièrement réécrite à chaque import. Une personne dont l'écriture diffère (accent, faute de frappe, ordre prénom/nom) est marquée ❌ : vérifiez ces cas à la main.</div>
           <p>Si une colonne est absente, un message l'indique : « Colonnes manquantes dans la feuille active » (colonnes <code>Inscrit</code> et/ou <code>Présence</code>), « Colonnes manquantes dans le CSV » (colonnes <code>Nom</code> et/ou <code>Prénom</code>) ou « CSV vide ».</p>

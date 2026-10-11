@@ -1034,3 +1034,7 @@ section.tight{ padding: 2.25rem 0; }
 @media (max-width: 900px){
   .intro-split{ grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+/* Étiquette « Fonctionnement » placée au-dessus du bloc texte + vidéo */
+.intro-eyebrow{ margin-bottom: 0; }
+.intro-split .section-head > h2:first-child{ margin-top: 0; }

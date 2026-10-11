@@ -996,3 +996,41 @@ section.tight{ padding: 2.25rem 0; }
 
 /* Listes ordonnées simples dans les encarts (export / import de paramètres) */
 .doc-content .subsection ol{ color: var(--ink-soft); padding-left: 1.3em; margin: .5em 0 0; }
+
+/* ---------------- Présentation : texte + vidéo côte à côte ---------------- */
+
+.intro-split{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2.25rem;
+}
+.intro-split .section-head{ max-width: none; margin-bottom: 0; }
+
+.video-frame{
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-m);
+  overflow: hidden;
+  background: var(--surface-alt);
+}
+.video-frame iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-caption{
+  margin: .7em 0 0;
+  text-align: center;
+  font-size: .82rem;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 900px){
+  .intro-split{ grid-template-columns: 1fr; gap: 1.5rem; }
+}
